@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nilayam Private Access</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+
+        /* Custom styles for background and font */
+
+        body {
+
+            font-family: 'Inter', sans-serif;
+
+            background-color: #0d1117; /* Dark background */
+
+        }
+
+        .text-glow {
+
+            text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6;
+
+        }
+
+        /* Style for the code blocks */
+
+        .code-block {
+
+            background-color: #1a202c; /* Darker background for code */
+
+            color: #d6bcfa; /* Light purple text */
+
+            padding: 1rem;
+
+            border-radius: 0.5rem;
+
+            overflow-x: auto; /* Allows horizontal scrolling for long lines */
+
+            font-size: 0.875rem; /* sm text size */
+
+            line-height: 1.25;
+
+            white-space: pre-wrap; /* Keeps code in blocks but wraps long lines */
+
+            word-break: break-all;
+
+        }
+
+        /* Style for the copy button */
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            background-color: #4b5563; /* Gray-600 */
+            color: white;
+            border-radius: 0.375rem; /* rounded-md */
+            cursor: pointer;
+            transition: background-color 0.2s, opacity 0.2s;
+            opacity: 0; /* Initially hidden */
+        }
+
+        .group:hover .copy-btn {
+            opacity: 1; /* Visible on hover of the parent .group */
+        }
+
+        .copy-btn:hover {
+            background-color: #6b7280; /* Gray-500 hover */
+        }
+
+    </style>
+
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+
+
+    <div id="auth-container" class="w-full max-w-md bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl transition-all duration-500">
+
+        
+
+        <h1 class="text-3xl font-extrabold text-blue-400 mb-2 text-center">
+
+            Nilayam Access
+
+        </h1>
+
+        <p class="text-gray-400 text-center mb-8">
+
+            Please enter your secret key to continue.
+
+        </p>
+
+
+
+        <div id="login-section" class="space-y-6">
+
+            <div class="relative">
+
+                <input
+
+                    type="password"
+
+                    id="authKeyInput"
+
+                    placeholder="Enter Key Here"
+
+                    class="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 shadow-inner transition duration-300"
+
+                    onkeypress="if(event.key === 'Enter') checkAuthKey()"
+
+                />
+
+            </div>
+
+
+
+            <button
+
+                onclick="checkAuthKey()"
+
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-blue-500/50"
+
+            >
+
+                UNLOCK ACCESS
+
+            </button>
+
+            
+
+            <div id="messageBox" class="text-center p-3 rounded-lg hidden"></div>
+
+        </div>
+
+
+
+        <div id="protected-content" class="hidden mt-8 text-center border-t border-gray-700 pt-6">
+
+            <svg class="w-12 h-12 mx-auto text-green-400 mb-4 text-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-7.618 4.016 12.043 12.043 0 00-.918 4.904c0 6.627 5.373 12 12 12s12-5.373 12-12a12.043 12.043 0 00-.918-4.904z"></path>
+
+            </svg>
+
+            <h2 class="text-2xl font-bold text-green-400 mb-4 text-glow">
+
+                ACCESS GRANTED: VERILOG CODES
+
+            </h2>
+
+            <p class="text-gray-300 mb-6">
+
+                Below are the source and testbench codes for your digital logic modules.
+
+            </p>
+
+
+
+            <div class="text-left space-y-8 p-4 bg-gray-700 rounded-xl shadow-inner">
+
+                
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">1. Universal Logic Gates (allgates(1).v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>// AND Gate
+
+module and_gate(input a, input b, output y);
+
+  assign y = a & b;
+
+endmodule
+
+
+
+// OR Gate
+
+module or_gate(input a, input b, output y);
+
+  assign y = a | b;
+
+endmodule
+
+
+
+// NOT Gate
+
+module not_gate(input a, output y);
+
+  assign y = ~a;
+
+endmodule
+
+
+
+// NAND Gate
+
+module nand_gate(input a, input b, output y);
+
+  assign y = ~(a & b);
+
+endmodule
+
+
+
+// NOR Gate
+
+module nor_gate(input a, input b, output y);
+
+  assign y = ~(a | b);
+
+endmodule
+
+
+
+// XOR Gate
+
+module xor_gate(input a, input b, output y);
+
+  assign y = a ^ b;
+
+endmodule
+
+
+
+// XNOR Gate
+
+module xnor_gate(input a, input b, output y);
+
+  assign y = ~(a ^ b);
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (algates_tb(2).v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module logic_gates_tb;
+
+
+
+  // Declare inputs as registers
+
+  reg tb_a, tb_b;
+
+
+
+  // Declare outputs as wires
+
+  wire and_out, or_out, not_out, nand_out, nor_out, xor_out, xnor_out;
+
+
+
+  // Instantiate the logic gate modules
+
+  and_gate uut_and ( .a(tb_a), .b(tb_b), .y(and_out) );
+
+  or_gate uut_or ( .a(tb_a), .b(tb_b), .y(or_out) );
+
+  not_gate uut_not ( .a(tb_a), .y(not_out) );
+
+  nand_gate uut_nand ( .a(tb_a), .b(tb_b), .y(nand_out) );
+
+  nor_gate uut_nor ( .a(tb_a), .b(tb_b), .y(nor_out) );
+
+  xor_gate uut_xor ( .a(tb_a), .b(tb_b), .y(xor_out) );
+
+  xnor_gate uut_xnor ( .a(tb_a), .b(tb_b), .y(xnor_out) );
+
+
+
+  // Stimulus generation
+
+  initial begin
+
+    // Dump waveform data for simulation analysis
+
+    $dumpfile("logic_gates.vcd");
+
+    $dumpvars(0, logic_gates_tb);
+
+
+
+    // Test case 1: A=0, B=0
+
+    tb_a = 1'b0;
+
+    tb_b = 1'b0;
+
+    #10; // Wait for 10 time units
+
+
+
+    // Test case 2: A=0, B=1
+
+    tb_a = 1'b0;
+
+    tb_b = 1'b1;
+
+    #10;
+
+
+
+    // Test case 3: A=1, B=0
+
+    tb_a = 1'b1;
+
+    tb_b = 1'b0;
+
+    #10;
+
+
+
+    // Test case 4: A=1, B=1
+
+    tb_a = 1'b1;
+
+    tb_b = 1'b1;
+
+    #10;
+
+
+
+    // Test for NOT gate (single input)
+
+    tb_a = 1'b0;
+
+    #10;
+
+    tb_a = 1'b1;
+
+    #10;
+
+
+
+    $finish; // End simulation
+
+  end
+
+
+
+  // Monitor outputs (optional, for displaying values in console)
+
+  initial begin
+
+    $monitor("Time=%0t | A=%b, B=%b | AND=%b, OR=%b, NOT(A)=%b, NAND=%b, NOR=%b, XOR=%b, XNOR=%b",
+
+             $time, tb_a, tb_b, and_out, or_out, not_out, nand_out, nor_out, xor_out, xnor_out);
+
+  end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">2. Arithmetic Logic Unit (ALU) (alu.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module alu(
+
+input [2:0] a,b,
+
+input [1:0] s,
+
+output reg [2:0] y);
+
+
+
+always @(*) 
+
+  begin
+
+    case(s) 
+
+    2'b00: y=a&b;
+
+    2'b01: y=a|b;
+
+    2'b10: y=a^b;
+
+    default: y=3'b000;
+
+endcase 
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_alu.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_alu();
+
+
+
+reg [2:0] at,bt;
+
+reg [1:0] st;
+
+wire [2:0] yt;
+
+
+
+alu uut(
+
+  .a(at), .b(bt), .s(st), .y(yt)
+
+);
+
+
+
+initial begin
+
+  $dumpvars(0, tb_alu);
+
+  $dumpfile("alu.vcd");
+
+
+
+  at=3'b001;bt=3'b111;
+
+  st = 2'b00;
+
+  #10;
+
+st =2'b01;
+
+#10;
+
+st=2'b10;
+
+#10;
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">3. 4-bit Comparator (comp.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module comparator(
+
+input [3:0] a,b,
+
+output reg [3:0] Gt,Eq,Lt);
+
+
+
+always @(*) begin
+
+
+
+if(a&lt;b) begin
+
+Gt&lt;=0;
+
+Eq&lt;=0;
+
+Lt&lt;=1;
+
+end
+
+
+
+else if(a&gt;b) begin
+
+Gt&lt;=1;
+
+Eq&lt;=0;
+
+Lt&lt;=0;
+
+end
+
+
+
+else if(a==b) begin
+
+Gt&lt;=0;
+
+Eq&lt;=1;
+
+Lt&lt;=0;
+
+end
+
+
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_comp.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_comparator;
+
+reg [3:0] ta,tb;
+
+wire tGt,tEq,tLt;
+
+
+
+comparator uut(ta, tb, tGt, tEq, tLt);
+
+
+
+initial begin
+
+
+
+$dumpvars(0, tb_comparator);
+
+$dumpfile("comparator.vcd");
+
+
+
+ta = 4'h0; tb = 4'h0; #20;
+
+ta = 4'h1; tb = 4'h8; #20;
+
+ta = 4'hA; tb = 4'h9; #20;
+
+ta = 4'hB; tb = 4'hD; #20;
+
+ta = 4'h6; tb = 4'h6; #20;
+
+
+
+$finish;
+
+
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">4. 3-to-8 Decoder (decoder.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>`timescale 1ns/1ps
+
+module decoder(
+
+input [2:0] in,
+
+output reg [7:0] out,
+
+output valid);
+
+
+
+always @(*) begin
+
+    case (in)
+
+    
+
+    3'b000: out = 8'b00000001 ;
+
+    3'b001: out = 8'b00000010 ;
+
+    3'b010: out = 8'b00000100 ;
+
+    3'b011: out = 8'b00001000 ; 
+
+    3'b100: out = 8'b00010000 ;
+
+    3'b101: out = 8'b00100000 ;
+
+    3'b110: out = 8'b01000000 ;
+
+    3'b111: out = 8'b10000000 ;
+
+    default: 
+
+            out = 8'bxxxxxxxx;
+
+    endcase
+
+end 
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_decoder.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>`timescale 1ns/1ps
+
+module tb_decoder();
+
+
+
+reg [2:0] tin;
+
+wire [7:0] tout;
+
+
+
+decoder uut(
+
+.in(tin), .out(tout));
+
+
+
+initial begin
+
+
+
+tin = 3'b000; #10;
+
+tin = 3'b001; #10;
+
+tin = 3'b010; #10;
+
+tin = 3'b011; #10;
+
+tin = 3'b100; #10;
+
+tin = 3'b101; #10;
+
+tin = 3'b110; #10;
+
+tin = 3'b111; #10;
+
+tin = 3'bxxx; #10;
+
+
+
+end 
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">5. 8-to-3 Priority Encoder (ecd.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module encoder(
+
+input [7:0] in,
+
+output reg [2:0] out);
+
+
+
+always @(*) begin
+
+    
+
+    casex(in)
+
+        8'b00000001: out = 3'b000;
+
+        8'b00000010: out = 3'b001;
+
+        8'b00000100: out = 3'b010;
+
+        8'b00001000: out = 3'b011;
+
+        8'b00010000: out = 3'b100;
+
+        8'b00100000: out = 3'b101;
+
+        8'b01000000: out = 3'b110;
+
+        8'b10000000: out = 3'b111;
+
+        default: out = 3'bxxx;
+
+    endcase
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_ecd.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_encoder();
+
+
+
+reg [7:0] tb_in;
+
+wire [2:0] tb_out;
+
+
+
+encoder uut(
+
+.in(tb_in), .out(tb_out));
+
+
+
+initial begin
+
+    tb_in = 8'b00000000 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00000001 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00000010 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00000100 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00001000 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00010000 ;
+
+    #15;
+
+
+
+    tb_in = 8'b00100000 ;
+
+    #15;
+
+
+
+    tb_in = 8'b01000000 ;
+
+    #15;
+
+
+
+    tb_in = 8'b10000000 ;
+
+    #15;
+
+
+
+    tb_in = 8'bxxxxxxxx ;
+
+    #15;
+
+end
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">6. 1-to-8 Demultiplexer (demux1x8.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module demux1x8(
+
+input [2:0] s,
+
+output reg [7:0] out,
+
+input e,
+
+input in);
+
+
+
+always @(*) begin 
+
+if(e==1'b1) begin
+
+case (s)
+
+
+
+3'b000: out[0] = in;
+
+3'b001: out[1] = in;
+
+3'b010: out[2] = in;
+
+3'b011: out[3] = in;
+
+3'b100: out[4] = in;
+
+3'b101: out[5] = in;
+
+3'b110: out[6] = in;
+
+3'b111: out[7] = in;
+
+
+
+endcase
+
+end
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_demux1x8.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_demux1x8;
+
+
+
+reg [2:0] ts;
+
+reg tin;
+
+reg te;
+
+wire [7:0] tout;
+
+
+
+demux1x8 uut(.s(ts) , .in(tin) ,.e(te) , .out(tout));
+
+
+
+initial begin
+
+
+
+    $dumpvars(0, tb_demux1x8);
+
+    $dumpfile("demux1x8.vcd");
+
+    
+
+    // Test 1: Enable (te) is 0 (should be disabled, output should be undefined/high-Z)
+
+    tin = 1'b1;
+
+    te = 0;
+
+    ts = 3'b000; #10;
+
+    ts = 3'b001; #10;
+
+    ts = 3'b010; #10;
+
+    ts = 3'b011; #10;
+
+    ts = 3'b100; #10;
+
+    ts = 3'b101; #10;
+
+    ts = 3'b110; #10;
+
+    ts = 3'b111; #10;
+
+
+
+    // Test 2: Enable (te) is 1 (should be active)
+
+    tin = 1'b1;
+
+    te = 1;
+
+    ts = 3'b000; #10; // in -> out[0]
+
+    ts = 3'b001; #10; // in -> out[1]
+
+    ts = 3'b010; #10; // in -> out[2]
+
+    ts = 3'b011; #10; // in -> out[3]
+
+    ts = 3'b100; #10; // in -> out[4]
+
+    ts = 3'b101; #10; // in -> out[5]
+
+    ts = 3'b110; #10; // in -> out[6]
+
+    ts = 3'b111; #10; // in -> out[7]
+
+    
+
+    $finish;
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">7. 2-to-1 Multiplexer (mux2x1.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module mux2x1(
+
+    input  a,      // Input 0
+
+    input  b,      // Input 1
+
+    input  sel,    // Select signal
+
+    output y      // Output
+
+);
+
+
+
+    assign y = sel ? b : a;
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_mux2x1.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_mux2x1;
+
+
+
+    // Declare signals for the testbench
+
+    reg  a_tb;
+
+    reg  b_tb;
+
+    reg  sel_tb;
+
+    wire y_tb;
+
+
+
+    // Instantiate the Device Under Test (DUT)
+
+    mux2x1 uut (
+
+        .a   (a_tb),
+
+        .b   (b_tb),
+
+        .sel (sel_tb),
+
+        .y   (y_tb)
+
+    );
+
+    
+
+    // Initial block for waveform dumping
+
+    initial begin
+
+        $dumpfile("mux2x1.vcd");
+
+        $dumpvars(0, tb_mux2x1);
+
+    end
+
+
+
+    // Initial block for stimulus generation
+
+    initial begin
+
+        $display("----------------------------------");
+
+        $display("Starting MUX 2x1 Testbench");
+
+        $display("----------------------------------");
+
+
+
+        // Case 1: sel = 0, y should follow a_tb
+
+        sel_tb = 0;
+
+        
+
+        a_tb = 0; b_tb = 1;
+
+        #10;
+
+        $display("At time %0t: sel=%b, a=%b, b=%b, y=%b", $time, sel_tb, a_tb, b_tb, y_tb);
+
+        
+
+        a_tb = 1; b_tb = 0;
+
+        #10;
+
+        $display("At time %0t: sel=%b, a=%b, b=%b, y=%b", $time, sel_tb, a_tb, b_tb, y_tb);
+
+
+
+        // Case 2: sel = 1, y should follow b_tb
+
+        sel_tb = 1;
+
+        
+
+        a_tb = 0; b_tb = 1;
+
+        #10;
+
+        $display("At time %0t: sel=%b, a=%b, b=%b, y=%b", $time, sel_tb, a_tb, b_tb, y_tb);
+
+        
+
+        a_tb = 1; b_tb = 0;
+
+        #10;
+
+        $display("At time %0t: sel=%b, a=%b, b=%b, y=%b", $time, sel_tb, a_tb, b_tb, y_tb);
+
+
+
+        $finish; // Finish simulation
+
+    end
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">8. 4-to-1 Multiplexer (mux4x1.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module mux4x1(
+
+input s0,
+
+input s1,
+
+input a,
+
+input b,
+
+input c,
+
+input d,
+
+output y
+
+);
+
+
+
+assign y = (a&amp;(~s0)&amp;(~s1))|(b&amp;(s0)&amp;(~s1))|(c&amp;(~s0)&amp;(s1))|(d&amp;(s0)&amp;(s1));
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_mux4x1.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_mux4x1;
+
+
+
+    reg a_tb;
+
+    reg b_tb;
+
+    reg c_tb;
+
+    reg s0_tb;
+
+    reg d_tb;
+
+    reg s1_tb;
+
+
+
+    wire y_tb;
+
+    
+
+    mux4x1 uut(
+
+    .a(a_tb) ,
+
+    .b(b_tb) ,
+
+    .c(c_tb) ,
+
+    .d(d_tb) ,
+
+    .s0(s0_tb) ,
+
+    .s1(s1_tb),
+
+    .y (y_tb) );
+
+    
+
+initial begin
+
+    $dumpvars(0, tb_mux4x1);
+
+    $dumpfile("mux4x1.vcd");
+
+    
+
+    // Set all inputs high to clearly see the selection change (y should always be 1)
+
+    a_tb = 1'b1; 
+
+    b_tb = 1'b1; 
+
+    c_tb = 1'b1; 
+
+    d_tb = 1'b1;
+
+
+
+    // Test case 1: s1=0, s0=0 -> y=a (y=1)
+
+    s1_tb = 1'b0; s0_tb = 1'b0;
+
+    #10;
+
+    
+
+    // Test case 2: s1=0, s0=1 -> y=b (y=1)
+
+    s1_tb = 1'b0; s0_tb = 1'b1;
+
+    #10;
+
+    
+
+    // Test case 3: s1=1, s0=0 -> y=c (y=1)
+
+    s1_tb = 1'b1; s0_tb = 1'b0;
+
+    #10;
+
+
+
+    // Test case 4: s1=1, s0=1 -> y=d (y=1)
+
+    s1_tb = 1'b1; s0_tb = 1'b1;
+
+    #10;
+
+    
+
+    // Additional Test Case: Set inputs differently (A=0, B=1, C=0, D=1)
+
+    a_tb = 1'b0; 
+
+    b_tb = 1'b1; 
+
+    c_tb = 1'b0; 
+
+    d_tb = 1'b1;
+
+    
+
+    s1_tb = 1'b0; s0_tb = 1'b0; #10; // Select A (y=0)
+
+    s1_tb = 1'b0; s0_tb = 1'b1; #10; // Select B (y=1)
+
+    s1_tb = 1'b1; s0_tb = 1'b0; #10; // Select C (y=0)
+
+    s1_tb = 1'b1; s0_tb = 1'b1; #10; // Select D (y=1)
+
+    
+
+    $finish;
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+                
+
+                <div>
+
+                    <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">9. 8-to-1 Multiplexer (mux8x1.v)</h3>
+
+                    <p class="text-gray-400 mb-2">Source Code:</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module mux8x1(
+
+input [2:0] s,
+
+input [7:0] in,
+
+input e,
+
+output reg out);
+
+
+
+
+
+always @(*) begin 
+
+if(e==1'b1) begin
+
+case (s)
+
+
+
+3'b000: out = in[0];
+
+3'b001: out = in[1];
+
+3'b010: out = in[2];
+
+3'b011: out = in[3];
+
+3'b100: out = in[4];
+
+3'b101: out = in[5];
+
+3'b110: out = in[6];
+
+3'b111: out = in[7];
+
+
+
+endcase
+
+end
+
+end
+
+
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+
+
+                    <p class="text-gray-400 mt-4 mb-2">Testbench (tb_mux8x1.v):</p>
+
+                    <div class="relative group">
+
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+
+                        <pre class="code-block"><code>module tb_mux8x1;
+
+
+
+reg [2:0] ts;
+
+reg [7:0] tin;
+
+reg te;
+
+wire tout;
+
+
+
+mux8x1 uut(.s(ts) , .in(tin) ,.e(te) , .out(tout));
+
+
+
+initial begin
+
+
+
+    $dumpvars(0, tb_mux8x1);
+
+    $dumpfile("mux8x1.vcd");
+
+    
+
+    tin = 8'b10101010;
+
+    te = 0; // Test with enable disabled (out should be high-Z or unknown)
+
+    ts = 3'b000; #10;
+
+    ts = 3'b001; #10;
+
+    ts = 3'b010; #10;
+
+    ts = 3'b011; #10;
+
+    ts = 3'b100; #10;
+
+    ts = 3'b101; #10;
+
+    ts = 3'b110; #10;
+
+    ts = 3'b111; #10;
+
+
+
+    tin = 8'b10101010;
+
+    te = 1; // Test with enable enabled (out should follow selected input)
+
+    ts = 3'b000; #10; // Select in[0] (y=0)
+
+    ts = 3'b001; #10; // Select in[1] (y=1)
+
+    ts = 3'b010; #10; // Select in[2] (y=0)
+
+    ts = 3'b011; #10; // Select in[3] (y=1)
+
+    ts = 3'b100; #10; // Select in[4] (y=0)
+
+    ts = 3'b101; #10; // Select in[5] (y=1)
+
+    ts = 3'b110; #10; // Select in[6] (y=0)
+
+    ts = 3'b111; #10; // Select in[7] (y=1)
+
+    
+
+    $finish;
+
+
+
+end
+
+endmodule
+
+</code></pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+
+                onclick="showLogin()"
+
+                class="mt-6 text-sm bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition duration-300"
+
+            >
+
+                Log Out / Lock Screen
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        // Define the correct authentication key (case-sensitive)
+
+        const CORRECT_KEY = "Nilayam";
+
+
+
+        const authKeyInput = document.getElementById('authKeyInput');
+
+        const loginSection = document.getElementById('login-section');
+
+        const protectedContent = document.getElementById('protected-content');
+
+        const messageBox = document.getElementById('messageBox');
+
+        const authContainer = document.getElementById('auth-container');
+
+
+
+        /**
+
+         * Displays a message in the message box.
+
+         * @param {string} message - The text to display.
+
+         * @param {boolean} isError - True for error (red), False for success (green/blue).
+
+         */
+
+        function displayMessage(message, isError) {
+
+            messageBox.textContent = message;
+
+            messageBox.classList.remove('hidden', 'bg-red-900/50', 'bg-green-900/50', 'bg-blue-900/50', 'text-red-300', 'text-green-300', 'text-blue-300');
+
+            
+
+            if (isError) {
+
+                messageBox.classList.add('bg-red-900/50', 'text-red-300');
+
+            } else {
+
+                // Use blue for lock message, green for successful access (though successful access hides the box immediately)
+
+                messageBox.classList.add('bg-blue-900/50', 'text-blue-300');
+
+            }
+
+            
+
+            // Auto-hide error messages after a delay
+
+            if(isError) {
+
+                setTimeout(() => {
+
+                    messageBox.classList.add('hidden');
+
+                }, 3000);
+
+            }
+
+        }
+
+
+
+        /**
+
+         * Checks the entered key against the correct key.
+
+         */
+
+        function checkAuthKey() {
+
+            const enteredKey = authKeyInput.value.trim();
+
+
+
+            if (enteredKey === CORRECT_KEY) {
+
+                // Success: Show protected content and hide login
+
+                protectedContent.classList.remove('hidden');
+
+                loginSection.classList.add('hidden');
+
+                messageBox.classList.add('hidden');
+
+                authKeyInput.value = ''; // Clear input field
+
+                
+
+                // Adjust container size for content (setting max-w-4xl for code display)
+
+                authContainer.classList.remove('max-w-md', 'max-w-lg');
+
+                authContainer.classList.add('max-w-4xl'); 
+
+                
+
+            } else {
+
+                // Error: Display error message
+
+                displayMessage('Access Denied. Key is incorrect.', true);
+
+                authKeyInput.value = ''; // Clear input for security
+
+                authKeyInput.focus();
+
+            }
+
+        }
+
+        
+
+        /**
+
+         * Shows the login screen and hides the protected content.
+
+         */
+
+        function showLogin() {
+
+            protectedContent.classList.add('hidden');
+
+            loginSection.classList.remove('hidden');
+
+            
+
+            authKeyInput.focus();
+
+            
+
+            // Reset container size
+
+            authContainer.classList.remove('max-w-lg', 'max-w-4xl');
+
+            authContainer.classList.add('max-w-md');
+
+            
+
+            displayMessage('Session Locked. Please re-enter your key.', false); // Inform user of lock
+
+        }
+
+
+
+        /**
+         * Copies the content of the sibling code block to the clipboard.
+         * @param {HTMLElement} buttonElement - The 'Copy' button that was clicked.
+         */
+        function copyCode(buttonElement) {
+            // The code block is the next sibling element (the <pre> tag)
+            const codeBlock = buttonElement.nextElementSibling;
+            
+            if (codeBlock && codeBlock.classList.contains('code-block')) {
+                // Get the text content from the <code> element inside <pre>
+                const codeText = codeBlock.textContent;
+
+                // Use the modern Clipboard API
+                navigator.clipboard.writeText(codeText).then(() => {
+                    // Temporarily change the button text to confirm copy
+                    const originalText = buttonElement.textContent;
+                    buttonElement.textContent = 'Copied!';
+                    
+                    // Reset the button text after a short delay
+                    setTimeout(() => {
+                        buttonElement.textContent = originalText;
+                    }, 2000);
+
+                }).catch(err => {
+                    // Fallback for older browsers or if permission is denied
+                    console.error('Could not copy text: ', err);
+                    alert("Failed to copy code. Please try selecting the text manually.");
+                });
+            }
+        }
+
+
+        // Initialize by focusing on the input field
+
+        window.onload = function() {
+
+            authKeyInput.focus();
+
+        };
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

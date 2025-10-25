@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nilayam Verilog Codes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body { font-family: 'Inter', sans-serif; background-color: #0d1117; }
+    .text-glow { text-shadow: 0 0 5px #3b82f6, 0 0 10px #3b82f6; }
+    .code-block { background-color: #1a202c; color: #d6bcfa; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.25; white-space: pre-wrap; word-break: break-all; }
+    .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; padding: 0.25rem 0.5rem; font-size: 0.75rem; background-color: #4b5563; color: white; border-radius: 0.375rem; cursor: pointer; transition: background-color 0.2s, opacity 0.2s; opacity: 0; }
+    .group:hover .copy-btn { opacity: 1; }
+    .copy-btn:hover { background-color: #6b7280; }
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+<div id="auth-container" class="w-full max-w-md bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl transition-all duration-500">
+
+    <h1 class="text-3xl font-extrabold text-blue-400 mb-2 text-center">Nilayam Access</h1>
+    <p class="text-gray-400 text-center mb-8">Please enter your secret key to continue.</p>
+
+    <div id="login-section" class="space-y-6">
+        <div class="relative">
+            <input type="password" id="authKeyInput" placeholder="Enter Key Here"
+                class="w-full px-4 py-3 bg-gray-700 text-white border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-400 shadow-inner transition duration-300"
+                onkeypress="if(event.key === 'Enter') checkAuthKey()"/>
+        </div>
+        <button onclick="checkAuthKey()"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.01] active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-blue-500/50">
+            UNLOCK ACCESS
+        </button>
+        <div id="messageBox" class="text-center p-3 rounded-lg hidden"></div>
+    </div>
+
+    <div id="protected-content" class="hidden mt-8 text-center border-t border-gray-700 pt-6">
+        <svg class="w-12 h-12 mx-auto text-green-400 mb-4 text-glow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-7.618 4.016 12.043 12.043 0 00-.918 4.904c0 6.627 5.373 12 12 12s12-5.373 12-12a12.043 12.043 0 00-.918-4.904z"></path>
+        </svg>
+        <h2 class="text-2xl font-bold text-green-400 mb-4 text-glow">ACCESS GRANTED: VERILOG CODES</h2>
+        <p class="text-gray-300 mb-6">Below are the source and testbench codes for your digital logic modules.</p>
+
+        <div class="text-left space-y-8 p-4 bg-gray-700 rounded-xl shadow-inner">
+            
+            <!-- 8-to-3 Encoder -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">1. 8-to-3 Encoder (encoder8to3.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module encoder8to3(input [7:0] in, output reg [2:0] out);
+always @(*) begin
+    casez(in)
+        8'b00000001: out = 3'b000;
+        8'b00000010: out = 3'b001;
+        8'b00000100: out = 3'b010;
+        8'b00001000: out = 3'b011;
+        8'b00010000: out = 3'b100;
+        8'b00100000: out = 3'b101;
+        8'b01000000: out = 3'b110;
+        8'b10000000: out = 3'b111;
+        default: out = 3'bxxx;
+    endcase
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_encoder8to3.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_encoder8to3;
+reg [7:0] in_tb;
+wire [2:0] out_tb;
+encoder8to3 uut(.in(in_tb), .out(out_tb));
+initial begin
+    in_tb = 8'b00000001; #10;
+    in_tb = 8'b00000100; #10;
+    in_tb = 8'b01000000; #10;
+    in_tb = 8'b10000000; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+            <!-- 1-to-2 Demux -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">2. 1-to-2 Demultiplexer (demux1x2.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module demux1x2(input in, input en, output reg y0, output reg y1);
+always @(*) begin
+    if(en) begin
+        y0 = in & ~en;
+        y1 = in & en;
+    end else begin
+        y0 = 0; y1 = 0;
+    end
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_demux1x2.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_demux1x2;
+reg in_tb, en_tb;
+wire y0_tb, y1_tb;
+demux1x2 uut(.in(in_tb), .en(en_tb), .y0(y0_tb), .y1(y1_tb));
+initial begin
+    en_tb = 1; in_tb = 1; #10;
+    en_tb = 1; in_tb = 0; #10;
+    en_tb = 0; in_tb = 1; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+            <!-- 1-to-4 Demux -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">3. 1-to-4 Demultiplexer (demux1x4.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module demux1x4(input in, input [1:0] sel, input en, output reg [3:0] out);
+always @(*) begin
+    out = 4'b0000;
+    if(en) begin
+        case(sel)
+            2'b00: out[0] = in;
+            2'b01: out[1] = in;
+            2'b10: out[2] = in;
+            2'b11: out[3] = in;
+        endcase
+    end
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_demux1x4.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_demux1x4;
+reg in_tb, en_tb;
+reg [1:0] sel_tb;
+wire [3:0] out_tb;
+demux1x4 uut(.in(in_tb), .sel(sel_tb), .en(en_tb), .out(out_tb));
+initial begin
+    en_tb = 1; in_tb = 1; sel_tb = 2'b00; #10;
+    sel_tb = 2'b01; #10;
+    sel_tb = 2'b10; #10;
+    sel_tb = 2'b11; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+            <!-- 4-to-2 Encoder -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">4. 4-to-2 Encoder (encoder4to2.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module encoder4to2(input [3:0] in, output reg [1:0] out);
+always @(*) begin
+    casez(in)
+        4'b0001: out = 2'b00;
+        4'b0010: out = 2'b01;
+        4'b0100: out = 2'b10;
+        4'b1000: out = 2'b11;
+        default: out = 2'bxx;
+    endcase
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_encoder4to2.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_encoder4to2;
+reg [3:0] in_tb;
+wire [1:0] out_tb;
+encoder4to2 uut(.in(in_tb), .out(out_tb));
+initial begin
+    in_tb = 4'b0001; #10;
+    in_tb = 4'b0100; #10;
+    in_tb = 4'b1000; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+            <!-- 2-to-1 Encoder -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">5. 2-to-1 Encoder (encoder2to1.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module encoder2to1(input [1:0] in, output reg out);
+always @(*) begin
+    casez(in)
+        2'b01: out = 1'b0;
+        2'b10: out = 1'b1;
+        default: out = 1'bx;
+    endcase
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_encoder2to1.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_encoder2to1;
+reg [1:0] in_tb;
+wire out_tb;
+encoder2to1 uut(.in(in_tb), .out(out_tb));
+initial begin
+    in_tb = 2'b01; #10;
+    in_tb = 2'b10; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+            <!-- Priority Encoder (8-to-3) -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-300 mb-3 border-b border-gray-600 pb-1">6. 8-to-3 Priority Encoder (priority_encoder.v)</h3>
+                <p class="text-gray-400 mb-2">Source Code:</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module priority_encoder8to3(input [7:0] in, output reg [2:0] out);
+always @(*) begin
+    if(in[7]) out = 3'b111;
+    else if(in[6]) out = 3'b110;
+    else if(in[5]) out = 3'b101;
+    else if(in[4]) out = 3'b100;
+    else if(in[3]) out = 3'b011;
+    else if(in[2]) out = 3'b010;
+    else if(in[1]) out = 3'b001;
+    else if(in[0]) out = 3'b000;
+    else out = 3'bxxx;
+end
+endmodule</code></pre>
+                </div>
+                <p class="text-gray-400 mt-4 mb-2">Testbench (tb_priority_encoder.v):</p>
+                <div class="relative group">
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    <pre class="code-block"><code>module tb_priority_encoder8to3;
+reg [7:0] in_tb;
+wire [2:0] out_tb;
+priority_encoder8to3 uut(.in(in_tb), .out(out_tb));
+initial begin
+    in_tb = 8'b00000001; #10;
+    in_tb = 8'b00001000; #10;
+    in_tb = 8'b10000000; #10;
+    $finish;
+end
+endmodule</code></pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+const secretKey = "nilayam123";
+
+function checkAuthKey() {
+    const input = document.getElementById("authKeyInput").value;
+    const messageBox = document.getElementById("messageBox");
+    if(input === secretKey) {
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("protected-content").classList.remove("hidden");
+        messageBox.classList.add("hidden");
+    } else {
+        messageBox.textContent = "❌ Invalid Key! Try Again.";
+        messageBox.className = "text-red-400 p-3 rounded-lg block";
+    }
+}
+
+function copyCode(button) {
+    const codeBlock = button.nextElementSibling;
+    navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+        button.textContent = "Copied!";
+        setTimeout(() => button.textContent = "Copy", 1500);
+    });
+}
+</script>
+
+</body>
+</html>
